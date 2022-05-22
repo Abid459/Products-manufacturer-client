@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 import Banner from './Banner';
 import Category from './Category';
+import Footer from './Footer';
 import Tools from './Tools';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Tools></Tools>
+            <Footer></Footer>
             {/* <Category></Category> */}
         </div>
     );
