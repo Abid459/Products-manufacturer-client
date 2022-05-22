@@ -9,7 +9,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import LogIn from '../LogIn/LogIn';
 import Register from '../Register/Register';
 
-const Header = () => {
+const Header = ({setIsDark,isDark}) => {
     const [user, loading, error] = useAuthState(auth);
     return (
         <div>
@@ -47,12 +47,14 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* <input type="checkbox" class="toggle" /> */}
                         <div class="dropdown dropdown-end">
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                                 <div class="w-10 rounded-full">
                                     <img src="https://api.lorem.space/image/face?hash=33791" />
                                 </div>
                             </label>
+                            
                             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
                                     <a class="justify-between">
@@ -61,6 +63,7 @@ const Header = () => {
                                     </a>
                                 </li>
                                 <li><a>Settings</a></li>
+                                <div onClick={()=>setIsDark(!isDark)}><li>Dark mood</li> <input type="checkbox" class="toggle" checked = {isDark}/></div>
                                 <li><a onClick={()=>signOut(auth)}>Logout</a></li>
                             </ul>
                         </div>
