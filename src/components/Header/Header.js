@@ -6,7 +6,8 @@ import auth from '../firebase.init';
 import Home from '../Home/Home';
 import Purchase from '../Purchase/Purchase';
 import Dashboard from '../Dashboard/Dashboard';
-
+import LogIn from '../LogIn/LogIn';
+import Register from '../Register/Register';
 import MyOrders from '../Dashboard/MyOrders';
 import AddProduct from '../Dashboard/AddProduct';
 import AddReview from '../Dashboard/AddReview';
@@ -29,8 +30,6 @@ const Header = ({setIsDark,isDark}) => {
                         <Link className='mr-6' to={'/'}>Home</Link>
                         <Link className='mr-6' to={'/purches'}>Purches</Link>
                         <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
-                        {/* <Link className='mr-6' to={''}>Add User</Link> */}
-                        <Link className='mr-6' to={'/register'}>Sign Up</Link>
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
                     </nav>
 
@@ -70,7 +69,8 @@ const Header = ({setIsDark,isDark}) => {
                                 </li>
                                 <li><a>Settings</a></li>
                                 <div onClick={()=>setIsDark(!isDark)}><li>Dark mood</li> <input type="checkbox" class="toggle" checked = {isDark}/></div>
-                                <li><a onClick={()=>signOut(auth)}>Logout</a></li>
+                                {user && <li><a onClick={()=>signOut(auth)}>Logout</a></li>}
+                                
                             </ul>
                         </div>
                     </div>
@@ -90,7 +90,8 @@ const Header = ({setIsDark,isDark}) => {
                     <Route path='my-profile' element={<MyProfile></MyProfile>}></Route>
                     <Route path='users' element={<Users></Users>}></Route>
                 </Route>
-                
+                <Route path='/register' element={<Register></Register>}></Route>
+                <Route path='/login' element={<LogIn></LogIn>}>  </Route>
             </Routes>
         </div>
     );
