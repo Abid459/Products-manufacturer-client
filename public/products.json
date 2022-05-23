@@ -1,6 +1,5 @@
 [
     {
-      "_id": "628a487d9b52ef1813cb1f07",
       "index": 0,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 77,
@@ -14,7 +13,6 @@
       ]
     },
     {
-      "_id": "628a487d36be2cd146d548b6",
       "index": 1,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 386,
@@ -28,7 +26,6 @@
       ]
     },
     {
-      "_id": "628a487dd45d7d63ff3266ec",
       "index": 2,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 401,
@@ -42,7 +39,6 @@
       ]
     },
     {
-      "_id": "628a487d1688c4e9265b625d",
       "index": 3,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 423,
@@ -56,7 +52,6 @@
       ]
     },
     {
-      "_id": "628a487db9e281fde788a395",
       "index": 4,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 231,
@@ -70,7 +65,6 @@
       ]
     },
     {
-      "_id": "628a487d543dcf961b31ff2b",
       "index": 5,
       "image": "https://images-na.ssl-images-amazon.com/images/I/510mh7mIJAL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       "price": 433,

@@ -6,8 +6,14 @@ import auth from '../firebase.init';
 import Home from '../Home/Home';
 import Purchase from '../Purchase/Purchase';
 import Dashboard from '../Dashboard/Dashboard';
-import LogIn from '../LogIn/LogIn';
-import Register from '../Register/Register';
+
+import MyOrders from '../Dashboard/MyOrders';
+import AddProduct from '../Dashboard/AddProduct';
+import AddReview from '../Dashboard/AddReview';
+import ManageOrders from '../Dashboard/ManageOrders';
+import ManageProducts from '../Dashboard/ManageProducts';
+import MyProfile from '../Dashboard/MyProfile';
+import Users from '../Dashboard/Users';
 
 const Header = ({setIsDark,isDark}) => {
     const [user, loading, error] = useAuthState(auth);
@@ -24,7 +30,7 @@ const Header = ({setIsDark,isDark}) => {
                         <Link className='mr-6' to={'/purches'}>Purches</Link>
                         <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
                         {/* <Link className='mr-6' to={''}>Add User</Link> */}
-                        <Link className='mr-6' to={'/signup'}>Sign Up</Link>
+                        <Link className='mr-6' to={'/register'}>Sign Up</Link>
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
                     </nav>
 
@@ -76,9 +82,15 @@ const Header = ({setIsDark,isDark}) => {
                 <Route path='/' element={<Home></Home>}></Route>
                 <Route path='/appontment' element={<Purchase></Purchase>}>  </Route>
                 <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+                    <Route path='add-review' element={<AddReview></AddReview>}></Route>
+                    <Route path='add-product' element={<AddProduct></AddProduct>}></Route>
+                    <Route path='manage-orders' element={<ManageOrders></ManageOrders>}></Route>
+                    <Route path='manage-products' element={<ManageProducts></ManageProducts>}></Route>
+                    <Route path='my-orders' element={<MyOrders></MyOrders>}></Route>
+                    <Route path='my-profile' element={<MyProfile></MyProfile>}></Route>
+                    <Route path='users' element={<Users></Users>}></Route>
                 </Route>
-                <Route path='/register' element={<Register></Register>}></Route>
-                <Route path='/login' element={<LogIn></LogIn>}>  </Route>
+                
             </Routes>
         </div>
     );
