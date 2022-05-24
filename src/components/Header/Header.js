@@ -15,6 +15,7 @@ import ManageOrders from '../Dashboard/ManageOrders';
 import ManageProducts from '../Dashboard/ManageProducts';
 import MyProfile from '../Dashboard/MyProfile';
 import Users from '../Dashboard/Users';
+import toast from 'react-hot-toast';
 
 const Header = ({setIsDark,isDark}) => {
     const [user, loading, error] = useAuthState(auth);
@@ -87,7 +88,8 @@ const Header = ({setIsDark,isDark}) => {
                     <Route path='manage-orders' element={<ManageOrders></ManageOrders>}></Route>
                     <Route path='manage-products' element={<ManageProducts></ManageProducts>}></Route>
                     <Route path='my-orders' element={<MyOrders></MyOrders>}></Route>
-                    <Route path='my-profile' element={<MyProfile></MyProfile>}></Route>
+                    <Route index  element={<MyProfile></MyProfile>}></Route>
+                    <Route index path='my-profile' element={<MyProfile></MyProfile>}></Route>
                     <Route path='users' element={<Users></Users>}></Route>
                 </Route>
                 <Route path='/register' element={<Register></Register>}></Route>
