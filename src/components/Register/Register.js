@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../firebase.init';
 import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
+import saveUser from "../../utilities/saveUser";
 
 const Register = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -30,10 +31,11 @@ const Register = () => {
         await updateProfile({ displayName });
         console.log("inside preocess", user)
     }
-    if(user){
-        console.log(user)
-        toast.success('user Created')
-    }
+
+    //saving user into database
+    user && saveUser(user.user.displayName,user.user.email)
+    gUser && saveUser(gUser.user.displayName,gUser.user.email);
+    
     return (
         <div className='min-h-screen flex justify-center items-center'>
             <div class="card w-96 bg-base-100 shadow-xl">

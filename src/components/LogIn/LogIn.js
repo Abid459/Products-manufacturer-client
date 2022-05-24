@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import generateToken from '../../utilities/generateToken';
+import saveUser from '../../utilities/saveUser';
 
 
 
@@ -17,6 +18,8 @@ const LogIn = () => {
       ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
 
+    // user && saveUser(user.user.displayName,user.user.email)
+    gUser && saveUser(gUser.user.displayName,gUser.user.email);
 
     const handleGoogleSignin = () => {
         console.log('ingn in is clicked')
