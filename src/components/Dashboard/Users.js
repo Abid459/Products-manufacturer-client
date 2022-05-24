@@ -7,10 +7,40 @@ import Loading from '../Loading/Loading';
 const Users = () => {
     const { isLoading, error, data, refetch } = useQuery('products', () => axios('http://localhost:5000/users'))
     const users = data?.data;
-    
+
     if (error) {
         return toast.error(error.message)
     }
+    const addAdmin = async (email) => {
+        const response = await axios.put('http://localhost:5000/userAdmin', { email });
+        refetch();
+        
+    }
+    const removeAdmin = async (email) => {
+        const response = await axios.put('http://localhost:5000/removeAdmin', { email });
+        refetch();
+        
+    }
+    const handleaddAdmin = async (email)=>{
+        const add = addAdmin(email);
+        toast.promise(add,{
+            loading:'Loading',
+            success:'Admin added',
+            error:'Error when removing'
+        })
+    }
+        // toast.promise()
+ 
+    const handleremoveAdmin = async (email) => {
+        const remove = removeAdmin(email)
+        toast.promise(remove,{
+            loading:'Loading',
+            success:'removed From Admin',
+            error:'Error when removing'
+        })
+        
+    }
+
     return (
         <div className='min-h-full'>
         {isLoading && <Loading></Loading>}
@@ -36,7 +66,7 @@ const Users = () => {
                             <p>{user.price}</p>
                         </div> */}
                         <div class="">
-                            <div className="btn">Make admin</div>
+                        {user?.role ? <button class="btn btn-outline " onClick={() => handleremoveAdmin(user.email)}>Remove Admin</button>:<button class="btn " onClick={() => handleaddAdmin(user.email)}>Make Admin</button>}
 
                         </div>
                     </div>
