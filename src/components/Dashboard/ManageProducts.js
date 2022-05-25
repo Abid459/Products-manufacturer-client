@@ -33,8 +33,8 @@ const ManageProducts = () => {
                     return <div class="card w-full   px-5 pt-5">
                         <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center">
                             <div>
-                                <div className='h-12 w-12 rounded-full bg-base-200 object-cover'>
-                                    <img src={product.image} alt="" />
+                                <div className='h-12 w-12  bg-base-200 object-cover'>
+                                    <img className='h-12 w-12  object-contain' src={product.image} alt="" />
                                 </div>
                             </div>
                             <div>

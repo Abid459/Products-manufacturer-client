@@ -35,7 +35,7 @@ const Header = ({setIsDark,isDark}) => {
 
                     <nav className='mx-10'>
                         <Link className='mr-6' to={'/'}>Home</Link>
-                        <Link className='mr-6' to={'/purches'}>Purches</Link>
+                        <Link className='mr-6' to={'/purchase'}>Purches</Link>
                         <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
                     </nav>
@@ -86,7 +86,7 @@ const Header = ({setIsDark,isDark}) => {
 
             <Routes>
                 <Route path='/' element={<Home></Home>}></Route>
-                <Route path='/appontment' element={<Purchase></Purchase>}>  </Route>
+                <Route path='/purchase' element={<Purchase></Purchase>}>  </Route>
                 <Route path='/dashboard' element={<Dashboard></Dashboard>}>
                     <Route path='add-review' element={<AddReview></AddReview>}></Route>
                     <Route path='add-product' element={<AddProduct></AddProduct>}></Route>

@@ -53,7 +53,7 @@ const AddProduct = () => {
                         <div class="card flex-shrink-0 w-full bg-base-100 p-5 flex-row">
                             <div className=''>
                                 <div className='h-80 w-72 bg-base-300'>
-                                <img className='h-80 w-72 object-cover'  src={image} alt=''/> 
+                                <img className='h-80 w-72 object-contain'  src={image} alt=''/> 
                                 </div>
                                 <div className='p-5'>
                                     <br />

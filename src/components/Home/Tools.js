@@ -5,9 +5,9 @@ import Loading from '../Loading/Loading';
 import Products from '../Products/Products';
 
 const Tools = () => {
-    const { isLoading, error, data} = useQuery('products',()=>axios('products.json') )
+    const { isLoading, error, data} = useQuery('products',()=>axios('http://localhost:5000/products') )
     const products =data?.data;
-    console.log(data?.data)
+    // console.log(data?.data)
     return (
         <section className='p-16'>
             {isLoading && <Loading></Loading>}

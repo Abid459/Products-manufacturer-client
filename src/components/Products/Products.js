@@ -1,28 +1,35 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Products = ({ products }) => {
+    const navigate = useNavigate()
+    const handleNavigate = (product) =>{
+        navigate('/purchase', {state:product})
+    }
     return (
         <div className='grid grid-cols-3 gap-10'>
             {
                 products?.map(product => {
-                    const { _id, name, image, quantity, price, description } = product;
+                    const { _id, name, image, quantity, price, description,minOrder,model} = product;
                     return <div>
-                        <div class="card w-full bg-base-100 shadow-xl glass">
-                            <figure ><img src={image} alt="tools" /></figure>
-                            <div class="card-body">
+                        <div class="card w-full bg-base-100  border ">
+                            <div className='w-full h-64 bg-white'>
+                            <figure ><img className='w-full h-60 object-contain p-5' src={image} alt="tools" /></figure>
+                            </div>
+                            <div class="card-body bg-base-300">
                                 <h2 class="card-title">{name}</h2>
                                 <div class="mb-6 h-20 overflow-hidden z-10">
                                 <p className='z-0'>{description?.length>=90?description.slice(0,90)+' ...':description}</p>
                                 </div>
-                                <div class="bg-base-200 rounded ">
+                                <div class="bg-base-200 w-96  rounded-xl ">
                                     <div class="p-4">
-                                        <p>Min order Quantiy: 100pc</p>
-                                        <p>Available Quantiy: {quantity}</p>
-                                        <p>Price (per unit): ${price}</p>
+                                        <p className='mb-'>Min order Quantiy: {minOrder}</p>
+                                        <p className='mb-'>Available Quantiy: {quantity}</p>
+                                        <p className='mb-'>Price (per unit):   ${price}</p>
                                     </div>
                                 </div>
-                                <div class="card-actions justify-end">
-                                    <button class="btn btn-primary">Buy Now</button>
+                                <div class="card-actions justify-end mt-5">
+                                    <button class="btn btn-outline" onClick={()=>handleNavigate(product)}>Buy Now</button>
                                 </div>
                             </div>
                         </div>
