@@ -12,7 +12,7 @@ const Products = ({ products }) => {
                             <div class="card-body">
                                 <h2 class="card-title">{name}</h2>
                                 <div class="mb-6 h-20 overflow-hidden z-10">
-                                <p className='z-0'>{description.length>=90?description.slice(0,90)+' ...':description}</p>
+                                <p className='z-0'>{description?.length>=90?description.slice(0,90)+' ...':description}</p>
                                 </div>
                                 <div class="bg-base-200 rounded ">
                                     <div class="p-4">

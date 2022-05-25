@@ -50,7 +50,7 @@ const Users = () => {
                     <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center">
                         <div>
                             <div className='h-12 w-12 rounded-full bg-base-200 object-cover'>
-                                <img src={user.image} alt="" />
+                                <img className='h-12 w-12 rounded-full object-cover' src={user.image} alt="" />
                             </div>
                         </div>
                         <div className='text-center'>

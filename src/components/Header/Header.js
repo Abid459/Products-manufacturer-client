@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase.init';
@@ -16,15 +16,21 @@ import ManageProducts from '../Dashboard/ManageProducts';
 import MyProfile from '../Dashboard/MyProfile';
 import Users from '../Dashboard/Users';
 import toast from 'react-hot-toast';
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
 const Header = ({setIsDark,isDark}) => {
-    const [user, loading, error] = useAuthState(auth);
+    const navigate =useNavigate();
+    const [user, loading, aError] = useAuthState(auth);
+    const email = user?.email;
+    const { isLoading, error, data, refetch } = useQuery(['user',email], () => axios.get(`http://localhost:5000/user/${email}`));
+    // console.log(data?.data.image);
     return (
         <div>
             <>
                 <div class="navbar bg-base-100">
                     <div class="flex-1">
-                        <a class="btn btn-ghost normal-case text-xl">CRAFTSMAN</a>
+                        <Link to={'/'}  class="normal-case font-bold text-xl">CRAFTSMAN</Link>
                     </div>
 
                     <nav className='mx-10'>
@@ -37,7 +43,7 @@ const Header = ({setIsDark,isDark}) => {
 
                     <div class="flex-none">
                         <div class="dropdown dropdown-end">
-                            <label tabindex="0" class="btn btn-ghost btn-circle">
+                            <label tabIndex="0" class="btn btn-ghost btn-circle">
                                 <div class="indicator">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                     <span class="badge badge-sm indicator-item">8</span>
@@ -57,19 +63,18 @@ const Header = ({setIsDark,isDark}) => {
                         <div class="dropdown dropdown-end">
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                                 <div class="w-10 rounded-full">
-                                    <img src="https://api.lorem.space/image/face?hash=33791" />
+                                    <img src={data?.data.image} alt='user image'/>
                                 </div>
                             </label>
                             
                             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
+                                <li onClick={()=>navigate('/Dashboard')}>
                                     <a class="justify-between">
                                         Profile
                                         <span class="badge">New</span>
                                     </a>
                                 </li>
-                                <li><a>Settings</a></li>
-                                <div onClick={()=>setIsDark(!isDark)}><li>Dark mood</li> <input type="checkbox" class="toggle" checked = {isDark}/></div>
+                                <li className='justify-between flex-row' onClick={()=>setIsDark(!isDark)}><p>Dark mood</p> <input type="checkbox" class="toggle" checked = {isDark}/></li>
                                 {user && <li><a onClick={()=>signOut(auth)}>Logout</a></li>}
                                 
                             </ul>

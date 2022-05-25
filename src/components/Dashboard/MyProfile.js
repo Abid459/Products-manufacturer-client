@@ -12,10 +12,10 @@ import './myProfile.css'
 
 const MyProfile = () => {
     const [isEdit, setIsEdit] = useState(false);
-    const [user, loading, aError] = useAuthState(auth);
     const [userData,setUserData] = useState({})
-    // const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [user, loading, aError] = useAuthState(auth);
     const email = user?.email;
+    // const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
 //fetch user data
     const { isLoading, error, data, refetch } = useQuery(['user',email], () => axios.get(`http://localhost:5000/user/${email}`))
@@ -46,8 +46,8 @@ const MyProfile = () => {
             const linkedin = e.target.linkedin.value;
             const twitter = e.target.twitter.value;
             const image = result.data.data.url;
-            console.log(name,email);
-            console.log(image,name,email,phoneNo,country,state,streetAddress,linkedin,twitter);
+            // console.log(name,email);
+            // console.log(image,name,email,phoneNo,country,state,streetAddress,linkedin,twitter);
             await axios.put(`http://localhost:5000/updateUser/${userData._id}`, {image, name,email,phoneNo,country,state,streetAddress,linkedin,twitter})
         }
         refetch();
