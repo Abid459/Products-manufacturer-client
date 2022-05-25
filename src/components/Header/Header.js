@@ -18,6 +18,7 @@ import Users from '../Dashboard/Users';
 import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import NotFound from '../NotFound/NotFound';
 
 const Header = ({setIsDark,isDark}) => {
     const navigate =useNavigate();
@@ -99,6 +100,7 @@ const Header = ({setIsDark,isDark}) => {
                 </Route>
                 <Route path='/register' element={<Register></Register>}></Route>
                 <Route path='/login' element={<LogIn></LogIn>}>  </Route>
+                <Route path='*' element={<NotFound></NotFound>}>  </Route>
             </Routes>
         </div>
     );
