@@ -23,19 +23,23 @@ const AddReview = () => {
         <div className='min-h-screen'>
             <div className='flex justify-center content-center'>
             <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
+                <div class="card-body flex-col">
                     <h2 class="card-title">Add your review</h2>
                     <form onSubmit={handleSublit}>
-                    <div class="rating">
+                        <div className='flex flex-col justify-center text-center'>
+
+                        
+                    <div class="rating my-5">
                         <input type="radio" name="rating" value={1} class="mask mask-star" />
                         <input type="radio" name="rating" value={2} class="mask mask-star"/>
                         <input type="radio" name="rating" value={3} class="mask mask-star" />
                         <input type="radio" name="rating" value={4} class="mask mask-star" />
                         <input type="radio" name="rating" value={5} class="mask mask-star" />
                     </div>
-                    <textarea name='detaisReview'  class="textarea textarea-bordered" placeholder="Write details about your experiences with us"></textarea>
-                    <div class="card-actions justify-end">
+                    <textarea name='detaisReview'  class="textarea textarea-bordered mb-6" placeholder="Write details about your experiences with us"></textarea>
+                    <div class="card-actions">
                         <button type='submit' class="btn btn-primary">Add review</button>
+                    </div>
                     </div>
                     </form>
                 </div>

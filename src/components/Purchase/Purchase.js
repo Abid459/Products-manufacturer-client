@@ -12,6 +12,7 @@ import Loading from '../Loading/Loading';
 const Purchase = () => {
     const location = useLocation();
     const {id} = useParams();
+    const [user, loading, error2] = useAuthState(auth);
     
 
     const [amounterror, setAmountError] = useState(' ');
@@ -19,13 +20,13 @@ const Purchase = () => {
 
     const { isLoading, error, data} = useQuery(['product',id],()=>axios(`http://localhost:5000/product/${id}`) )
     const product =data?.data;
-    const { uData } = useUserDetails(product?.email);
-    const user = uData?.data;
+    // const { uData } = useUserDetails(product?.email);
+    // const user = uData?.data;
     if(isLoading){
         return <Loading></Loading>
     }
     console.log('purchase producst',product)
-    const { _id, name, model, description, email, image, minOrder, price, quantity } = product;
+    const { _id, name, model, description, image, minOrder, price, quantity } = product;
     
 
     const handleAmount = (e) => {
@@ -53,7 +54,7 @@ const Purchase = () => {
             console.log('null')
             return;
         }
-        const response = await axios.post('http://localhost:5000/addOrder',{email,phoneNo,productId:_id,amount,totalPrice,productName:name})
+        const response = await axios.post('http://localhost:5000/addOrder',{email:user?.email,phoneNo,productId:_id,amount,totalPrice,productName:name})
         if(response.data.acknowledged){
             toast.success('Your order have been placed')
         }
