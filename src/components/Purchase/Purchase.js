@@ -1,23 +1,32 @@
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { useLocation } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { useLocation, useParams } from 'react-router-dom';
 import useUserDetails from '../../utilities/userDetails';
 import auth from '../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Purchase = () => {
     const location = useLocation();
-    // const { register, formState: { errors }, handleSubmit } = useForm();
-    const product = location?.state;
-    const { _id, name, model, description, email, image, minOrder, price, quantity } = product
-    const { data } = useUserDetails(email);
-    const user = data?.data;
+    const {id} = useParams();
+    
 
     const [amounterror, setAmountError] = useState(' ');
     const [totalPrice, setTotalPrice] = useState(0)
 
+    const { isLoading, error, data} = useQuery(['product',id],()=>axios(`http://localhost:5000/product/${id}`) )
+    const product =data?.data;
+    const { uData } = useUserDetails(product?.email);
+    const user = uData?.data;
+    if(isLoading){
+        return <Loading></Loading>
+    }
+    console.log('purchase producst',product)
+    const { _id, name, model, description, email, image, minOrder, price, quantity } = product;
+    
 
     const handleAmount = (e) => {
         const amount = e.target.value;
@@ -44,7 +53,7 @@ const Purchase = () => {
             console.log('null')
             return;
         }
-        const response = await axios.post('http://localhost:5000/addOrder',{email,phoneNo,productId:_id,amount,totalPrice})
+        const response = await axios.post('http://localhost:5000/addOrder',{email,phoneNo,productId:_id,amount,totalPrice,productName:name})
         if(response.data.acknowledged){
             toast.success('Your order have been placed')
         }
@@ -52,6 +61,7 @@ const Purchase = () => {
     }
 
     return (
+        
         <div div className='min-h-screen ' >
 
             <div>

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useIsAdmin from '../../hooks/useIsAdmin';
 
 const Dashboard = () => {
+    const isAdmin = useIsAdmin();
     return (
         <div>
             <div class="drawer drawer-mobile">
@@ -17,12 +19,17 @@ const Dashboard = () => {
                     <ul class="menu p-4 overflow-y-auto w-80  text-base-content bg-base-300">
                         {/* Sidebar content here  */}
                         <li><Link to='my-profile'>My Profile</Link></li>
+                        {!isAdmin && <>
                         <li className=''><Link to= 'my-orders'>My Orders</Link></li>
                         <li><Link to ='add-review'>Add a review</Link></li>
+                        </>}
+
+                        {isAdmin && <>
                         <li><Link to ='manage-orders'>Manage All orders</Link></li>
                         <li><Link to='add-product'>Add a product</Link></li>
                         <li><Link to= 'users'>All users</Link></li>
                         <li><Link to ='manage-products'>Manage Products</Link></li>
+                        </>}
                     </ul>
 
                 </div>

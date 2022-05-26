@@ -1,14 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import generateToken from '../../utilities/generateToken';
 import saveUser from '../../utilities/saveUser';
+import toast from 'react-hot-toast';
 
 
 
 const LogIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const location = useLocation();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
@@ -26,6 +28,12 @@ const LogIn = () => {
         signInWithGoogle();
 
     }
+
+    //error
+    error && toast.error(error.message)
+    gError && toast.error(gError.message)
+
+    let from = location.state?.from?.pathname || "/";
     
     const onSubmit = data => {
         const {email,password}=data
@@ -36,6 +44,9 @@ const LogIn = () => {
         console.dir('inside google user');
         console.log(gUser?.user?.email)
         const data = generateToken(gUser?.user?.email);
+    }
+    if(user|| gUser){
+        navigate(from, { replace: true });
     }
     return (
         <div className='h-screen flex justify-center items-center'>
@@ -70,7 +81,7 @@ const LogIn = () => {
                                 <label class="label">
                                     <span class="label-text ">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" class="input input-bordered w-full max-w-xs"
+                                <input type="password" placeholder="password" class="input input-bordered w-full max-w-xs"
                                     {...register("password", {
                                         required: {
                                             value: true,

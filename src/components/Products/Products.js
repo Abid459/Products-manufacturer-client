@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Products = ({ products }) => {
     const navigate = useNavigate()
-    const handleNavigate = (product) =>{
-        navigate('/purchase', {state:product})
-    }
+    // const handleNavigate = (product) =>{
+    //     navigate('/purchase', {state:product})
+    // }
     return (
         <div className='grid grid-cols-3 gap-10'>
             {
@@ -29,7 +29,7 @@ const Products = ({ products }) => {
                                     </div>
                                 </div>
                                 <div class="card-actions justify-end mt-5">
-                                    <button class="btn btn-outline" onClick={()=>handleNavigate(product)}>Buy Now</button>
+                                    <button class="btn btn-outline" onClick={()=>navigate(`/purchase/${_id}`)}>Buy Now</button>
                                 </div>
                             </div>
                         </div>
