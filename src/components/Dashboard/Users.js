@@ -55,7 +55,7 @@ const Users = () => {
                         </div>
                         <div className='text-center'>
                             <p className='font-semibold'>Name</p>
-                            <p>{user.name.length >= 15 ? user.name.slice(0, 15) + ' ...' : user.name}</p>
+                            <p>{user?.name?.length >= 15 ? user.name.slice(0, 15) + ' ...' : user.name}</p>
                         </div>
                         <div className='text-center'>
                             <p className='font-semibold'>Email</p>

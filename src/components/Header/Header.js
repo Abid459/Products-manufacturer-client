@@ -22,6 +22,8 @@ import NotFound from '../NotFound/NotFound';
 import RequireAuth from '../RequireAuth/RequireAuth';
 import Blogs from '../Blogs/Blogs';
 import MyPortfolio from '../MyPortfolio/MyPortfolio';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ setIsDark, isDark }) => {
     const navigate = useNavigate();
@@ -42,30 +44,19 @@ const Header = ({ setIsDark, isDark }) => {
                         {/* <Link className='mr-6' to={'/purchase'}>Purches</Link> */}
                         {user && <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>}
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
-                        <Link className='mr-6' to={'/blogs'}>Blosg</Link>
+                        <Link className='mr-6' to={'/blogs'}>Blogs</Link>
                         <Link className='mr-6' to={'/myPortfolio'}>My Portfolio</Link>
                     
                     </nav>
 
 
                     <div class="flex-none">
-                        <div class="dropdown dropdown-end">
-                            
-                            <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
-                                <div class="card-body">
-                                    <span class="font-bold text-lg">8 Items</span>
-                                    <span class="text-info">Subtotal: $999</span>
-                                    <div class="card-actions">
-                                        <button class="btn btn-primary btn-block">View cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         {/* <input type="checkbox" class="toggle" /> */}
                         <div class="dropdown dropdown-end">
                             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                                <div class="w-10 rounded-full">
-                                    <img src={data?.data.image} alt='user image' />
+                                <div class="w-10 h-10 rounded-full bg-slate-400 flex justify-center items-center">
+                                   {data?.data.image ?<img src={data?.data.image} alt='user image' />:<FontAwesomeIcon className='w-5 h-5 p-2' icon={faUser}></FontAwesomeIcon>} 
                                 </div>
                             </label>
 

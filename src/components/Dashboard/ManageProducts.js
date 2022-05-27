@@ -38,7 +38,7 @@ const ManageProducts = () => {
                                 </div>
                             </div>
                             <div>
-                                <p>{product.name.length >= 15 ? product.name.slice(0, 15) + ' ...' : product.name}</p>
+                                <p>{product?.name?.length >= 15 ? product.name.slice(0, 15) + ' ...' : product.name}</p>
                             </div>
                             <div className='text-center'>
                                 <p className='font-semibold'>Quantity</p>

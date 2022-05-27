@@ -11,11 +11,11 @@ const Reviews = () => {
     const reviews = data?.data;
     console.log('from review', reviews)
     return (
-        <div className='min-h-full w-full my-10'>
+        <div className='min-h-full w-full'>
 
         
             <h3 className='text-center font-bold text-xl '>Reviews</h3>
-        <div className='mx-auto  flex justify-center my-5 gap-3'>
+        <div className='mx-auto  flex justify-center my-10 gap-3'>
 
             {
                 reviews && reviews.map(review => {
