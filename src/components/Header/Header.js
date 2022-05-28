@@ -24,6 +24,7 @@ import Blogs from '../Blogs/Blogs';
 import MyPortfolio from '../MyPortfolio/MyPortfolio';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import AllProducts from '../AllProducts/AllProducts';
 
 const Header = ({ setIsDark, isDark }) => {
     const navigate = useNavigate();
@@ -103,6 +104,7 @@ const Header = ({ setIsDark, isDark }) => {
                 <Route path='/login' element={<LogIn></LogIn>}>  </Route>
                 <Route path='blogs' element={<Blogs></Blogs>}></Route>
                 <Route path='myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+                <Route path='allProducts' element={<AllProducts></AllProducts>}></Route>
                 <Route path='*' element={<NotFound></NotFound>}>  </Route>
             </Routes>
         </div>
