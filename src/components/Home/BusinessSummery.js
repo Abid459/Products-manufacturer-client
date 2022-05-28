@@ -7,7 +7,7 @@ const BusinessSummery = () => {
                 <div className='flex justify-center conte'>
                     <h3 className='text-center font-bold text-xl'>Our Business Summery</h3>
                 </div>
-                <div class="stats shadow mx-auto my-10">
+                <div class="lg:stats shadow mx-auto my-10">
 
                     <div class="stat">
                         <div class="stat-figure text-primary">

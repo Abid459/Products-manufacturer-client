@@ -27,25 +27,25 @@ const MyPortfolio = () => {
                                 {/* row 1 */}
                                 <tr>
                                     <th className='w-10'>HTML</th>
-                                    <td><progress class="progress w-56 ml-5" value="95" max="100"></progress></td>
+                                    <td><progress class="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
                                 </tr>
                                 {/* row 2  */}
                                 <tr>
                                     <th>Css</th>
-                                    <td><progress class="progress w-56 ml-5" value="95" max="100"></progress></td>
+                                    <td><progress class="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
                                 </tr>
                                 {/* row 3  */}
                                 <tr>
                                     <th>JavaScript</th>
-                                    <td><progress class="progress w-56 ml-5" value="90" max="100"></progress></td>
+                                    <td><progress class="progress lg:w-56 ml-5" value="90" max="100"></progress></td>
                                 </tr>
                                 <tr>
                                     <th>React Js</th>
-                                    <td><progress class="progress w-56 ml-5" value="80" max="100"></progress></td>
+                                    <td><progress class="progress lg:w-56 ml-5" value="80" max="100"></progress></td>
                                 </tr>
                                 <tr>
                                     <th>Node Js</th>
-                                    <td><progress class="progress w-56 ml-5" value="65" max="100"></progress></td>
+                                    <td><progress class="progress lg:w-56 ml-5" value="65" max="100"></progress></td>
                                 </tr>
                             </tbody>
                         </table>

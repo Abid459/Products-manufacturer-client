@@ -1,3 +1,5 @@
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useIsAdmin from '../../hooks/useIsAdmin';
@@ -8,10 +10,10 @@ const Dashboard = () => {
         <div>
             <div class="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col  bg-base-200">
+                <div class="drawer-content flex flex-col  bg-base-200 relative">
                     {/* Page content here */}
                     <Outlet></Outlet>
-                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label for="my-drawer-2" class="btn  drawer-button lg:hidden absolute left-1 top-1"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></label>
 
                 </div>
                 <div class="drawer-side ">

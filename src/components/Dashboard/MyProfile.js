@@ -94,7 +94,7 @@ const MyProfile = () => {
             <form onSubmit={handleSubmit}>
 
 
-                <div className='flex p-10'>
+                <div className='flex flex-wrap lg:flex-nowrap p-10'>
                     <div className='w-80  mr-10'>
                         <div className='bg-gray-500 h-80 w-80 rounded-full object-cover flex justify-center items-center'>
                             <img className=' object-cover w-80 h-80 rounded-full' src={userData?.image} alt="" />

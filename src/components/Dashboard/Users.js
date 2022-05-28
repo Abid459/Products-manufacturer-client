@@ -47,7 +47,7 @@ const Users = () => {
         {
             users && users.map(user => {
                 return <div class="card w-full   px-5 pt-5">
-                    <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center">
+                    <div class=" flex bg-base-100 rounded-xl flex-row lg:justify-between p-5 items-center flex-wrap lg:gap-0 gap-5 justify-center ">
                         <div>
                             <div className='h-12 w-12 rounded-full bg-base-200 object-cover'>
                                 <img className='h-12 w-12 rounded-full object-cover' src={user.image} alt="" />

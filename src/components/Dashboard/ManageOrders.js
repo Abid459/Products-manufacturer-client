@@ -44,7 +44,7 @@ const ManageOrders = () => {
             {
                 orders && orders.map(order => {
                     return <div class="card w-full   px-5 pt-5">
-                        <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center">
+                        <div class=" flex flex-wrap bg-base-100 sm:gap-5 rounded-xl flex-row justify-between p-5 items-center">
                             
                             <div className='text-center '>
                                 <p className='font-semibold'>Product Id</p>

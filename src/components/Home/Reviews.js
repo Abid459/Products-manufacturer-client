@@ -15,7 +15,7 @@ const Reviews = () => {
 
 
             <h3 className='text-center font-bold text-xl '>Reviews</h3>
-            <div className='mx-auto  flex justify-center my-10 gap-3'>
+            <div className='mx-auto  flex justify-center flex-wrap my-10 gap-3'>
 
                 {
                     reviews && reviews.map(review => {
@@ -26,7 +26,7 @@ const Reviews = () => {
                                 <h2 class="card-title"></h2>
                                 <div className='bg-base-300 w-12 h-12 rounded-full mx-auto my-5 flex justify-center items-center'>
 
-                                <FontAwesomeIcon className='w-7 h-7 ' icon={faUser}></FontAwesomeIcon>
+                                    <FontAwesomeIcon className='w-7 h-7 ' icon={faUser}></FontAwesomeIcon>
                                 </div>
                                 <Rating start={0} stop={5} step={1} initialRating={rating}
                                     emptySymbol={<FontAwesomeIcon className='text-gray-300' icon={faStar}></FontAwesomeIcon>}

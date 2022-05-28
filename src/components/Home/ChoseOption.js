@@ -8,7 +8,7 @@ const ChoseOption = () => {
 
 
             <div class=" bg-base-100 bg-base-200 mx-auto">
-                <div class="card-body p-28">
+                <div class="card-body lg:p-28">
                     <h4 className='text-xl font-semibold mb-4'>NOT ONLY OUR PRODUCTS OUR AFTER SELL SERVICE STANDS OUT TOO</h4>
                     <ul>
                         <li>

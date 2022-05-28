@@ -50,7 +50,7 @@ const AddProduct = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div class="hero">
                     <div class="hero-content  ">
-                        <div class="card flex-shrink-0 w-full bg-base-100 p-5 flex-row">
+                        <div class="card flex-shrink-0 w-full bg-base-100 p-5 flex-row flex-wrap">
                             <div className=''>
                                 <div className='h-80 w-72 bg-base-300'>
                                 <img className='h-80 w-72 object-contain'  src={image} alt=''/> 

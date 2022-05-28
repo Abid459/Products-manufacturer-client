@@ -30,8 +30,8 @@ const ManageProducts = () => {
             {isLoading && <Loading></Loading>}
             {
                 products && products.map(product => {
-                    return <div class="card w-full   px-5 pt-5">
-                        <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center">
+                    return <div class="card w-full  px-5 pt-5">
+                        <div class=" flex bg-base-100 rounded-xl flex-row lg:justify-between p-5 items-center flex-wrap gap-4 lg:gap-0 justify-center">
                             <div>
                                 <div className='h-12 w-12  bg-base-200 object-cover'>
                                     <img className='h-12 w-12  object-contain' src={product.image} alt="" />
