@@ -9,7 +9,7 @@ const useIsAdmin = () => {
 
     const [user, loading, aError] = useAuthState(auth);
     const email = user?.email;
-    const { isLoading, error, data, refetch } = useQuery(['user', email], () => axios.get(`http://localhost:5000/user/${email}`));
+    const { isLoading, error, data, refetch } = useQuery(['user', email], () => axios.get(`https://limitless-earth-93689.herokuapp.com/user/${email}`));
     if(isLoading){
         return <Loading></Loading>
     }

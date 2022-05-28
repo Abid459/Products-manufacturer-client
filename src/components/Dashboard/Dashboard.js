@@ -8,17 +8,17 @@ const Dashboard = () => {
     const isAdmin = useIsAdmin();
     return (
         <div>
-            <div class="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col  bg-base-200 relative">
+            <div className="drawer drawer-mobile">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col  bg-base-200 relative">
                     {/* Page content here */}
                     <Outlet></Outlet>
-                    <label for="my-drawer-2" class="btn  drawer-button lg:hidden absolute left-1 top-1"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></label>
+                    <label for="my-drawer-2" className="btn  drawer-button lg:hidden absolute left-1 top-1"><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></label>
 
                 </div>
-                <div class="drawer-side ">
-                    <label for="my-drawer-2" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto w-80  text-base-content bg-base-300">
+                <div className="drawer-side ">
+                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <ul className="menu p-4 overflow-y-auto w-80  text-base-content bg-base-300">
                         {/* Sidebar content here  */}
                         <li><Link to='my-profile'>My Profile</Link></li>
                         {!isAdmin && <>

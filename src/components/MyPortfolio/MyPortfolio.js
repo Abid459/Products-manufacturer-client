@@ -20,32 +20,32 @@ const MyPortfolio = () => {
                     <h4 className='font-semibold my-10 text-xl bg-base-300 py-5 text-center'>Skills I have as web developer</h4>
 
 
-                    <div class="overflow-x-auto">
-                        <table class="table w-full">
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
                             {/* heade  */}
                             <tbody>
                                 {/* row 1 */}
                                 <tr>
                                     <th className='w-10'>HTML</th>
-                                    <td><progress class="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
+                                    <td><progress className="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
                                 </tr>
                                 {/* row 2  */}
                                 <tr>
                                     <th>Css</th>
-                                    <td><progress class="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
+                                    <td><progress className="progress lg:w-56 ml-5" value="95" max="100"></progress></td>
                                 </tr>
                                 {/* row 3  */}
                                 <tr>
                                     <th>JavaScript</th>
-                                    <td><progress class="progress lg:w-56 ml-5" value="90" max="100"></progress></td>
+                                    <td><progress className="progress lg:w-56 ml-5" value="90" max="100"></progress></td>
                                 </tr>
                                 <tr>
                                     <th>React Js</th>
-                                    <td><progress class="progress lg:w-56 ml-5" value="80" max="100"></progress></td>
+                                    <td><progress className="progress lg:w-56 ml-5" value="80" max="100"></progress></td>
                                 </tr>
                                 <tr>
                                     <th>Node Js</th>
-                                    <td><progress class="progress lg:w-56 ml-5" value="65" max="100"></progress></td>
+                                    <td><progress className="progress lg:w-56 ml-5" value="65" max="100"></progress></td>
                                 </tr>
                             </tbody>
                         </table>

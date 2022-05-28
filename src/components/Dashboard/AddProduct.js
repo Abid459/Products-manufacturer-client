@@ -23,7 +23,7 @@ const AddProduct = () => {
         
         if (result.data.success) {
             const image = result.data.data.url;
-            const response = await axios.post(`http://localhost:5000/addProduct/`, {email:user?.email,name, model, quantity, description,price,minOrder,image}) 
+            const response = await axios.post(`https://limitless-earth-93689.herokuapp.com/addProduct/`, {email:user?.email,name, model, quantity, description,price,minOrder,image}) 
             if(response.data.acknowledged){
                 toast.success(' One Item added')
                 setImage(null);
@@ -48,9 +48,9 @@ const AddProduct = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div class="hero">
-                    <div class="hero-content  ">
-                        <div class="card flex-shrink-0 w-full bg-base-100 p-5 flex-row flex-wrap">
+                <div className="hero">
+                    <div className="hero-content  ">
+                        <div className="card flex-shrink-0 w-full bg-base-100 p-5 flex-row flex-wrap">
                             <div className=''>
                                 <div className='h-80 w-72 bg-base-300'>
                                 <img className='h-80 w-72 object-contain'  src={image} alt=''/> 
@@ -60,36 +60,36 @@ const AddProduct = () => {
                                     <input onChange={handleImage}  type="file" name="" id="" />
                                 </div>
                             </div>
-                            <div class="card-body">
+                            <div className="card-body">
                                 {/* form input  */}
-                                <div class="form-control">
-                                    <input type="text" placeholder="name" class="input input-bordered"
+                                <div className="form-control">
+                                    <input type="text" placeholder="name" className="input input-bordered"
                                         {...register("name")}
                                     />
                                 </div>
 
 
 
-                                <div class="form-control">
-                                    <input type="text" placeholder="model" class="input input-bordered" {...register("model")} />
+                                <div className="form-control">
+                                    <input type="text" placeholder="model" className="input input-bordered" {...register("model")} />
                                 </div>
 
-                                <div class="form-control">
-                                    <input type="number" placeholder="quantity" class="input input-bordered" {...register("quantity")} />
+                                <div className="form-control">
+                                    <input type="number" placeholder="quantity" className="input input-bordered" {...register("quantity")} />
                                 </div>
 
-                                <div class="form-control">
-                                    <input type="number" placeholder="price" class="input input-bordered" {...register("price")} />
+                                <div className="form-control">
+                                    <input type="number" placeholder="price" className="input input-bordered" {...register("price")} />
                                 </div>
 
-                                <div class="form-control">
-                                    <input type="number" placeholder="min Order quantity" class="input input-bordered" {...register("minOrder")} />
+                                <div className="form-control">
+                                    <input type="number" placeholder="min Order quantity" className="input input-bordered" {...register("minOrder")} />
                                 </div>
 
-                                <textarea class="textarea textarea-bordered" placeholder="description" {...register("description")}></textarea>
+                                <textarea className="textarea textarea-bordered" placeholder="description" {...register("description")}></textarea>
 
-                                <div class="form-control mt-6">
-                                    <button class="btn btn-primary">ADD</button>
+                                <div className="form-control mt-6">
+                                    <button className="btn btn-primary">ADD</button>
                                 </div>
                             </div>
                         </div>

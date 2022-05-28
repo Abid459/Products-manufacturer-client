@@ -19,7 +19,7 @@ const MyProfile = () => {
     // const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     //fetch user data
-    const { isLoading, error, data, refetch } = useQuery(['user', email], () => axios.get(`http://localhost:5000/user/${email}`))
+    const { isLoading, error, data, refetch } = useQuery(['user', email], () => axios.get(`https://limitless-earth-93689.herokuapp.com/user/${email}`))
     // console.log(data)
     useEffect(() => {
         setUserData(data?.data)
@@ -50,7 +50,7 @@ const MyProfile = () => {
             const twitter = e.target.twitter.value;
             const image = result.data.data.url;
 
-            const response = await axios.put(`http://localhost:5000/updateUser/${userData?._id}`, { image, name, email, phoneNo, country, state, streetAddress, linkedin, twitter })
+            const response = await axios.put(`https://limitless-earth-93689.herokuapp.com/updateUser/${userData?._id}`, { image, name, email, phoneNo, country, state, streetAddress, linkedin, twitter })
             if (response.data.acknowledged) {
                 refetch();
                 toast.success('Information updated')
@@ -66,7 +66,7 @@ const MyProfile = () => {
             const twitter = e.target.twitter.value;
             // const image = result.data.data.url;
 
-            const response = await axios.put(`http://localhost:5000/updateUser/${userData?._id}`, { name, email, phoneNo, country, state, streetAddress, linkedin, twitter })
+            const response = await axios.put(`https://limitless-earth-93689.herokuapp.com/updateUser/${userData?._id}`, { name, email, phoneNo, country, state, streetAddress, linkedin, twitter })
             if (response.data.acknowledged) {
                 refetch();
                 toast.success('Information updated')
@@ -103,44 +103,44 @@ const MyProfile = () => {
                             </div>
 
                         </div>
-                        <input placeholder='What is your name?' type="text" name="name" class="input text-center my-10 text-xl font-semibold input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.name} />
+                        <input placeholder='What is your name?' type="text" name="name" className="input text-center my-10 text-xl font-semibold input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.name} />
                     </div>
                     <div className="info w-full ">
                         <div className='flex justify-between'>
                             <h3 className='text-xl font-bold'>Your Information</h3>
                             {
-                                !isEdit ? <span class="btn btn-sm" onClick={() => setIsEdit(!isEdit)}>Edit</span> : <button class="btn btn-sm" type='submit'>Update</button>
+                                !isEdit ? <span className="btn btn-sm" onClick={() => setIsEdit(!isEdit)}>Edit</span> : <button className="btn btn-sm" type='submit'>Update</button>
                             }
 
                         </div>
-                        <div class="divider"></div>
+                        <div className="divider"></div>
 
                         <h4 className='text-xl font-semibold text-secondary mb-5'>Conact</h4>
                         <h4 className='font-semibold'>Your Email address:</h4>
-                        <input type="text" name='email' placeholder="Add your Email" class="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.email} />
+                        <input type="text" name='email' placeholder="Add your Email" className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.email} />
 
                         <h4 className='font-semibold'>Your Phone no:</h4>
-                        <input type="text" name='phoneNo' placeholder='Add your Phone No' class="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.phoneNo} />
+                        <input type="text" name='phoneNo' placeholder='Add your Phone No' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.phoneNo} />
 
 
                         <h4 className='text-xl font-semibold text-secondary mb-5'>Address</h4>
                         <h4 className='font-semibold'>Country:</h4>
-                        <input type="text" name='country' placeholder='Add your country' class="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.country} />
+                        <input type="text" name='country' placeholder='Add your country' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.country} />
                         <h4 className='font-semibold'>District/State:</h4>
-                        <input type="text" placeholder='Add your district/state' name='state' class="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.state} />
+                        <input type="text" placeholder='Add your district/state' name='state' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.state} />
                         <h4 className='font-semibold'>Street Address</h4>
-                        <input type="text" placeholder='Details about you address' name='streetAddress' class="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.streetAddress} />
+                        <input type="text" placeholder='Details about you address' name='streetAddress' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.streetAddress} />
 
 
                         <h4 className='text-xl font-semibold text-secondary mb-5'>Social</h4>
-                        <div class="form-control">
-                            <label class="input-group mb-5">
+                        <div className="form-control">
+                            <label className="input-group mb-5">
                                 <span className='rounded-full'><FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon></span>
-                                <input type="text" name='linkedin' defaultValue={userData?.social?.linkedin} placeholder='Add your Linkedin profile' class="input input-bordered" disabled={!isEdit} />
+                                <input type="text" name='linkedin' defaultValue={userData?.social?.linkedin} placeholder='Add your Linkedin profile' className="input input-bordered" disabled={!isEdit} />
                             </label>
-                            <label class="input-group">
+                            <label className="input-group">
                                 <span><FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon></span>
-                                <input type="text" name='twitter' placeholder='Add your Twitter account' defaultValue={userData?.social?.twitter} class="input input-bordered" disabled={!isEdit} />
+                                <input type="text" name='twitter' placeholder='Add your Twitter account' defaultValue={userData?.social?.twitter} className="input input-bordered" disabled={!isEdit} />
                             </label>
                         </div>
 

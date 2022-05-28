@@ -7,7 +7,7 @@ import Loading from '../Loading/Loading';
 import Products from '../Products/Products';
 
 const AllProducts = () => {
-    const { isLoading, error, data} = useQuery('products',()=>axios('http://localhost:5000/products') )
+    const { isLoading, error, data} = useQuery('products',()=>axios('https://limitless-earth-93689.herokuapp.com/products') )
     const products =data?.data;
     return (
         <div>

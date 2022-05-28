@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
+import { Navigate, useNavigate } from 'react-router-dom';
 import ConfirmModal from '../../shared components/ConfirmModal';
 import auth from '../firebase.init';
 import Loading from '../Loading/Loading';
 
 const MyOrders = () => {
+    const navigate = useNavigate()
     const [isConfirmDelete, setIsConfirmDelete] = useState(false)
     const [orderId,setOrderId] = useState('');
     const [user, loading, error2] = useAuthState(auth);
     const [ProductId,setProductId] = useState('')
-    const { isLoading, error, data, refetch } = useQuery('products', () => axios(`http://localhost:5000/myOrder/${user?.email}`))
+    const { isLoading, error, data, refetch } = useQuery('products', () => axios(`https://limitless-earth-93689.herokuapp.com/myOrder/${user?.email}`))
 
 
     const orders = data?.data;
@@ -23,7 +25,7 @@ const MyOrders = () => {
     //delete operation
     const handleDelete = async (id) => {
 
-        const response = axios.delete(`http://localhost:5000/order/${id}`)
+        const response = axios.delete(`https://limitless-earth-93689.herokuapp.com/order/${id}`)
         .then(()=>{
             toast.success('One order delete')
            
@@ -43,8 +45,8 @@ const MyOrders = () => {
             
             {
                 orders && orders.map(order => {
-                    return <div class="card w-full   px-5 pt-5">
-                        <div class=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center flex-wrap lg:flex-nowrap gap-5 lg:gap-0">
+                    return <div className="card w-full   px-5 pt-5">
+                        <div className=" flex bg-base-100 rounded-xl flex-row justify-between p-5 items-center flex-wrap lg:flex-nowrap gap-5 lg:gap-0">
                             
                             <div className='text-center '>
                                 <p className='font-semibold'>Product Id</p>
@@ -66,8 +68,9 @@ const MyOrders = () => {
                                 <p className='font-semibold'>Total price</p>
                                 <p>{order.totalPrice}</p>
                             </div>
-                            <div class="">
-                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" class="btn btn-sm modal-button">DELETE</label>
+                            <div className="btn btn-sm" onClick={()=>navigate(`/dashboard/payment/${order._id}`)}>Pay</div>
+                            <div className="">
+                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" className="btn btn-sm modal-button">CANCEL</label>
 
                             </div>
                         </div>

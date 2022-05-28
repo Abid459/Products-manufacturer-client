@@ -5,19 +5,19 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 
 const Users = () => {
-    const { isLoading, error, data, refetch } = useQuery('products', () => axios('http://localhost:5000/users'))
+    const { isLoading, error, data, refetch } = useQuery('products', () => axios('https://limitless-earth-93689.herokuapp.com/users'))
     const users = data?.data;
 
     if (error) {
         return toast.error(error.message)
     }
     const addAdmin = async (email) => {
-        const response = await axios.put('http://localhost:5000/userAdmin', { email });
+        const response = await axios.put('https://limitless-earth-93689.herokuapp.com/userAdmin', { email });
         refetch();
         
     }
     const removeAdmin = async (email) => {
-        const response = await axios.put('http://localhost:5000/removeAdmin', { email });
+        const response = await axios.put('https://limitless-earth-93689.herokuapp.com/removeAdmin', { email });
         refetch();
         
     }
@@ -46,8 +46,8 @@ const Users = () => {
         {isLoading && <Loading></Loading>}
         {
             users && users.map(user => {
-                return <div class="card w-full   px-5 pt-5">
-                    <div class=" flex bg-base-100 rounded-xl flex-row lg:justify-between p-5 items-center flex-wrap lg:gap-0 gap-5 justify-center ">
+                return <div className="card w-full   px-5 pt-5">
+                    <div className=" flex bg-base-100 rounded-xl flex-row lg:justify-between p-5 items-center flex-wrap lg:gap-0 gap-5 justify-center ">
                         <div>
                             <div className='h-12 w-12 rounded-full bg-base-200 object-cover'>
                                 <img className='h-12 w-12 rounded-full object-cover' src={user.image} alt="" />
@@ -65,8 +65,8 @@ const Users = () => {
                             <p className='font-semibold'>Price/unit</p>
                             <p>{user.price}</p>
                         </div> */}
-                        <div class="">
-                        {user?.role ? <button class="btn btn-outline " onClick={() => handleremoveAdmin(user.email)}>Remove Admin</button>:<button class="btn " onClick={() => handleaddAdmin(user.email)}>Make Admin</button>}
+                        <div className="">
+                        {user?.role ? <button className="btn btn-outline " onClick={() => handleremoveAdmin(user.email)}>Remove Admin</button>:<button className="btn " onClick={() => handleaddAdmin(user.email)}>Make Admin</button>}
 
                         </div>
                     </div>

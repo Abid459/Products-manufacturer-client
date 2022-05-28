@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 const ManageOrders = () => {
     const [orderId,setOrderId] = useState('');
     const [isConfirmDelete, setIsConfirmDelete] = useState(false);
-    const { isLoading, error, data,refetch} = useQuery(['orderManage',isConfirmDelete],()=>axios('http://localhost:5000/orders',{
+    const { isLoading, error, data,refetch} = useQuery(['orderManage',isConfirmDelete],()=>axios('https://limitless-earth-93689.herokuapp.com/orders',{
         headers:{
             authorization :`Bearer ${localStorage.getItem('accessToken')}`
     }
@@ -22,7 +22,7 @@ const ManageOrders = () => {
     }
     const handleDelete = async (id) => {
 
-        const response = axios.delete(`http://localhost:5000/order/${id}`)
+        const response = axios.delete(`https://limitless-earth-93689.herokuapp.com/order/${id}`)
         .then(()=>{
             toast.success('One order delete')
            
@@ -43,8 +43,8 @@ const ManageOrders = () => {
             
             {
                 orders && orders.map(order => {
-                    return <div class="card w-full   px-5 pt-5">
-                        <div class=" flex flex-wrap bg-base-100 sm:gap-5 rounded-xl flex-row justify-between p-5 items-center">
+                    return <div className="card w-full   px-5 pt-5">
+                        <div className=" flex flex-wrap bg-base-100 sm:gap-5 rounded-xl flex-row justify-between p-5 items-center">
                             
                             <div className='text-center '>
                                 <p className='font-semibold'>Product Id</p>
@@ -66,8 +66,8 @@ const ManageOrders = () => {
                                 <p className='font-semibold'>Total price</p>
                                 <p>{order.totalPrice}</p>
                             </div>
-                            <div class="">
-                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" class="btn btn-sm modal-button">DELETE</label>
+                            <div className="">
+                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" className="btn btn-sm modal-button">DELETE</label>
 
                             </div>
                         </div>

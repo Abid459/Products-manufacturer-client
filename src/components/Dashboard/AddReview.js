@@ -13,7 +13,7 @@ const AddReview = () => {
         const review = e.target.rating.value;
         const detaisReview = e.target.detaisReview.value;
         console.log('review', e.target.rating.value)
-        const response = await axios.post(`http://localhost:5000/addReview/`, { email: user?.email, review, detaisReview })
+        const response = await axios.post(`https://limitless-earth-93689.herokuapp.com/addReview/`, { email: user?.email, review, detaisReview })
         if (response.data.acknowledged) {
             toast.success(' We have recieved your review')
             // reset();
@@ -22,23 +22,23 @@ const AddReview = () => {
     return (
         <div className='min-h-screen'>
             <div className='flex justify-center content-center flex-wrap '>
-                <div class="card w-96 bg-base-100 shadow-xl mt-10">
-                    <div class="card-body flex-col">
-                        <h2 class="card-title">Add your review</h2>
+                <div className="card w-96 bg-base-100 shadow-xl mt-10">
+                    <div className="card-body flex-col">
+                        <h2 className="card-title">Add your review</h2>
                         <form onSubmit={handleSublit}>
                             <div className='flex flex-col justify-center text-center'>
 
 
-                                <div class="rating my-5">
-                                    <input type="radio" name="rating" value={1} class="mask mask-star" />
-                                    <input type="radio" name="rating" value={2} class="mask mask-star" />
-                                    <input type="radio" name="rating" value={3} class="mask mask-star" />
-                                    <input type="radio" name="rating" value={4} class="mask mask-star" />
-                                    <input type="radio" name="rating" value={5} class="mask mask-star" />
+                                <div className="rating my-5">
+                                    <input type="radio" name="rating" value={1} className="mask mask-star" />
+                                    <input type="radio" name="rating" value={2} className="mask mask-star" />
+                                    <input type="radio" name="rating" value={3} className="mask mask-star" />
+                                    <input type="radio" name="rating" value={4} className="mask mask-star" />
+                                    <input type="radio" name="rating" value={5} className="mask mask-star" />
                                 </div>
-                                <textarea name='detaisReview' class="textarea textarea-bordered mb-6" placeholder="Write details about your experiences with us"></textarea>
-                                <div class="card-actions">
-                                    <button type='submit' class="btn btn-primary">Add review</button>
+                                <textarea name='detaisReview' className="textarea textarea-bordered mb-6" placeholder="Write details about your experiences with us"></textarea>
+                                <div className="card-actions">
+                                    <button type='submit' className="btn btn-primary">Add review</button>
                                 </div>
                             </div>
                         </form>

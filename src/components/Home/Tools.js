@@ -9,7 +9,7 @@ import Products from '../Products/Products';
 
 const Tools = () => {
     const navigate = useNavigate()
-    const { isLoading, error, data} = useQuery('products',()=>axios('http://localhost:5000/recentProducts') )
+    const { isLoading, error, data} = useQuery('products',()=>axios('https://limitless-earth-93689.herokuapp.com/recentProducts') )
     const products =data?.data;
     // console.log(data?.data)
     return (

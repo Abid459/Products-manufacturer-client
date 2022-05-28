@@ -50,18 +50,18 @@ const LogIn = () => {
     }
     return (
         <div className='h-screen flex justify-center items-center'>
-            <div class="card w-96 bg-base-200 ">
+            <div className="card w-96 bg-base-200 ">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div >
-                        <div class="card-body">
-                            <h2 class="card-title">Log in</h2>
+                        <div className="card-body">
+                            <h2 className="card-title">Log in</h2>
 
                             {/* Field for email */}
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text ">Email</span>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text ">Email</span>
                                 </label>
-                                <input type="text" placeholder="Email" class="input input-bordered w-full max-w-xs"
+                                <input type="text" placeholder="Email" className="input input-bordered w-full max-w-xs"
                                     {...register("email", {
                                         required: {
                                             value: true,
@@ -69,7 +69,7 @@ const LogIn = () => {
                                         },
                                     })}
                                 />
-                                <label class="label">
+                                <label className="label">
                                     {errors.email && <span className="label-text-alt text-error">{errors.email.message}</span>}
                                 </label>
                             </div>
@@ -77,11 +77,11 @@ const LogIn = () => {
 
 
                             {/* password field  */}
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text ">Password</span>
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text ">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" class="input input-bordered w-full max-w-xs"
+                                <input type="password" placeholder="password" className="input input-bordered w-full max-w-xs"
                                     {...register("password", {
                                         required: {
                                             value: true,
@@ -89,25 +89,25 @@ const LogIn = () => {
                                         },
                                     })}
                                 />
-                                <label class="label">
+                                <label className="label">
                                     {errors.email && <span className="label-text-alt text-error">{errors.password?.message}</span>}
                                 </label>
                                 <p className='text-sm text-right cursor-pointer mb-5 text-yellow-600'>Forgot password?</p>
                             </div>
 
-                            <div class="card-actions">
-                                <button class="btn w-full max-w-xs ">Log in</button>
+                            <div className="card-actions">
+                                <button className="btn w-full max-w-xs ">Log in</button>
                             </div>
 
-                            <div class="divider">OR</div>
+                            <div className="divider">OR</div>
                         </div>
                     </div>
 
                 </form>
                 <p className='text-sm  mb-5 text-center'>New user? <span className='cursor-pointer text-yellow-600' onClick={()=>navigate('/register')}>Register Here</span> </p>
                 {/* signin with google button  */}
-                <div class=" w-full max-w-xs mx-auto mb-10">
-                    <button class="btn w-full max-w-xs " onClick={handleGoogleSignin}>Sign in with google</button>
+                <div className=" w-full max-w-xs mx-auto mb-10">
+                    <button className="btn w-full max-w-xs " onClick={handleGoogleSignin}>Sign in with google</button>
                 </div>
             </div>
         </div>

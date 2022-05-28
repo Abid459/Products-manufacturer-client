@@ -18,7 +18,7 @@ const Purchase = () => {
     const [amounterror, setAmountError] = useState(' ');
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const { isLoading, error, data} = useQuery(['product',id],()=>axios(`http://localhost:5000/product/${id}`) )
+    const { isLoading, error, data} = useQuery(['product',id],()=>axios(`https://limitless-earth-93689.herokuapp.com/product/${id}`) )
     const product =data?.data;
     // const { uData } = useUserDetails(product?.email);
     // const user = uData?.data;
@@ -54,7 +54,7 @@ const Purchase = () => {
             console.log('null')
             return;
         }
-        const response = await axios.post('http://localhost:5000/addOrder',{email:user?.email,phoneNo,productId:_id,amount,totalPrice,productName:name})
+        const response = await axios.post('https://limitless-earth-93689.herokuapp.com/addOrder',{email:user?.email,phoneNo,productId:_id,amount,totalPrice,productName:name})
         if(response.data.acknowledged){
             toast.success('Your order have been placed')
         }
@@ -66,12 +66,12 @@ const Purchase = () => {
         <div div className='min-h-screen ' >
 
             <div>
-                <div class="card card-side bg-base-100 shadow-xl w-4/5 mx-auto mt-10">
+                <div className="card card-side bg-base-100 shadow-xl w-4/5 mx-auto mt-10">
                     <div className='p-10 w-2/6 bg-white'>
                         <figure><img class='h-80 object-contain' src={image} alt="Movie" /></figure>
                     </div>
-                    <div class="card-body w-4/6">
-                        <h2 class="card-title">{name}</h2>
+                    <div className="card-body w-4/6">
+                        <h2 className="card-title">{name}</h2>
                         <p className='mb-10'>{model}</p>
                         <p>Price per unit: <span className='text-secondary'> ${price}</span></p>
                         <p>Available quantity: <span className='text-secondary'> {quantity} pc</span></p>
@@ -82,49 +82,49 @@ const Purchase = () => {
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <div class="card w-4/5 bg-base-100 shadow-xl mx-auto mt-20">
-                        <div class="card-body">
-                            <h2 class="card-title">Check your information before placing the order</h2>
+                    <div className="card w-4/5 bg-base-100 shadow-xl mx-auto mt-20">
+                        <div className="card-body">
+                            <h2 className="card-title">Check your information before placing the order</h2>
                             <div className='flex justify-around'>
                                 <div>
-                                    <div class="form-control w-full max-w-xs">
-                                        <label class="label">
-                                            <span class="label-text">What is your name?</span>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">What is your name?</span>
                                         </label>
-                                        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" defaultValue={user?.name} />
-                                        <label class="label">
-                                        </label>
-                                    </div>
-
-                                    <div class="form-control w-full max-w-xs">
-                                        <label class="label">
-                                            <span class="label-text">Your Email</span>
-                                        </label>
-                                        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" defaultValue={user?.email} readOnly/>
-                                        <label class="label">
+                                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" defaultValue={user?.name} />
+                                        <label className="label">
                                         </label>
                                     </div>
 
-                                    <div class="form-control w-full max-w-xs">
-                                        <label class="label">
-                                            <span class="label-text">Your Phone no</span>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Your Email</span>
                                         </label>
-                                        <input type="text" name='phoneNo' placeholder="Type here" class="input input-bordered w-full max-w-xs" defaultValue={user?.phoneNo} />
-                                        <label class="label">
+                                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" defaultValue={user?.email} readOnly/>
+                                        <label className="label">
+                                        </label>
+                                    </div>
+
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label">
+                                            <span className="label-text">Your Phone no</span>
+                                        </label>
+                                        <input type="text" name='phoneNo' placeholder="Type here" className="input input-bordered w-full max-w-xs" defaultValue={user?.phoneNo} />
+                                        <label className="label">
                                         </label>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">The amount you want to purchase</span>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">The amount you want to purchase</span>
                                         </label>
-                                        <label class="input-group">
+                                        <label className="input-group">
                                             <span>Amount</span>
-                                            <input type="number" name='amount'  placeholder="# piece" class="input input-bordered" onChange={handleAmount} />
+                                            <input type="number" name='amount'  placeholder="# piece" className="input input-bordered" onChange={handleAmount} />
                                         </label>
-                                        <span class="label-text-alt mt-3 text-warning">{amounterror}</span>
+                                        <span className="label-text-alt mt-3 text-warning">{amounterror}</span>
 
                                     </div>
                                     <div className='text-right'>
@@ -135,8 +135,8 @@ const Purchase = () => {
                             </div>
 
 
-                            <div class="card-actions justify-end">
-                                <button class="btn btn-primary" disabled={amounterror}>Buy Now</button>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary" disabled={amounterror}>Buy Now</button>
                             </div>
                         </div>
                     </div>
