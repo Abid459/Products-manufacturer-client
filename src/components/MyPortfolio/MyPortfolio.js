@@ -10,57 +10,67 @@ const MyPortfolio = () => {
                     <p>abid45986@gmail.com</p>
                 </header>
                 <hr />
+
                 <div>
-
-                    <h4 className='font-semibold mt-5'>Educaitonal Background:</h4>
-                    <p>I have completede Bsc in EEE </p>
-
-                    <h4 className='font-semibold my-5'>Skills I have as web developer</h4>
-
-
-                    <div className='relative  inline-block text-right'>
-
-                    <div className='flex items-center'>
-                    <label>Html</label>
-                    <progress class="progress w-56 ml-5" value="95" max="100"></progress>
+                    <div className='bg-base-200'>
+                    <h4 className='font-semibold mt-5 bg-base-300 text-center py-4'>Educaitonal Background:</h4>
+                    <p className='p-5'>I have completede Bsc in EEE </p>
                     </div>
 
-                    <div className='flex items-center text-right'>
-                    <label text-right>Css</label>
-                    <progress class="progress w-56 ml-5" value="95" max="100"></progress>
-                    </div>
+                    <h4 className='font-semibold my-10 text-xl bg-base-300 py-5 text-center'>Skills I have as web developer</h4>
 
 
-                    <div className='flex items-center'>
-                    <label>JavaScript</label>
-                    <progress class="progress w-56 ml-5" value="90" max="100"></progress>
-                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="table w-full">
+                            {/* heade  */}
+                            <tbody>
+                                {/* row 1 */}
+                                <tr>
+                                    <th className='w-10'>HTML</th>
+                                    <td><progress class="progress w-56 ml-5" value="95" max="100"></progress></td>
+                                </tr>
+                                {/* row 2  */}
+                                <tr>
+                                    <th>Css</th>
+                                    <td><progress class="progress w-56 ml-5" value="95" max="100"></progress></td>
+                                </tr>
+                                {/* row 3  */}
+                                <tr>
+                                    <th>JavaScript</th>
+                                    <td><progress class="progress w-56 ml-5" value="90" max="100"></progress></td>
+                                </tr>
+                                <tr>
+                                    <th>React Js</th>
+                                    <td><progress class="progress w-56 ml-5" value="80" max="100"></progress></td>
+                                </tr>
+                                <tr>
+                                    <th>Node Js</th>
+                                    <td><progress class="progress w-56 ml-5" value="65" max="100"></progress></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div >
+                    <div className='bg-base-200'>
 
-                    <div className='flex items-center'>
-                    <label>React Js</label>
-                    <progress class="progress w-56 ml-5" value="75" max="100"></progress>
-                    </div>
-                    <div className='flex items-center'>
-                    <label>Node Js</label>
-                    <progress class="progress w-56 ml-5" value="50" max="100"></progress>
-                    </div>
-                    
-                    </div>
-                    <h4 className='font-semibold my-5 '>Additional Skills</h4>
-                    <ul>
-                        <li>Adobe Photoshop</li>
-                        <li>Adobe Illustrator</li>
+                        <h4 className='font-semibold my-5  bg-base-300 py-4 text-center' >Additional Skills</h4>
+                        <ul className='text-center py-5'>
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Illustrator</li>
 
-                    </ul>
+                        </ul>
+                    </div>
 
                 </div>
 
-                <div className="portfolio">
-                <h4 className='font-semibold my-5 '>Portfolio:</h4>
-                <p>Website 1: <a href="https://warehouse-5d158.web.app/" target='_blank' className='underline'>Click here</a> </p>
-                <p>Website 2: <a href="https://tiny-semifreddo-64a3a8.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
-                <p>Website 3: <a href="https://silly-kataifi-aad752.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
-              
+                <div className="portfolio mt-5 ">
+                    <h4 className='font-semibold bg-base-300 py-4 text-center '>Portfolio:</h4>
+                    <div className='p-5 bg-base-200'>
+
+                    <p>Website 1: <a href="https://warehouse-5d158.web.app/" target='_blank' className='underline'>Click here</a> </p>
+                    <p>Website 2: <a href="https://tiny-semifreddo-64a3a8.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
+                    <p>Website 3: <a href="https://silly-kataifi-aad752.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
+
+                    </div>
                 </div>
 
             </div>
