@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App" data-theme={isDark? "dark":"light"}>
       <Header setIsDark={setIsDark} isDark ={isDark}></Header>
-      
       <div><Toaster/></div>
 
     </div>

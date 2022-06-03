@@ -52,19 +52,25 @@ const Header = ({ setIsDark, isDark }) => {
                     <nav className='mx-10 hidden lg:block'>
                         <Link className='mr-6' to={'/'}>Home</Link>
                         {/* <Link className='mr-6' to={'/purchase'}>Purches</Link> */}
-                        {user && <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>}
-                        {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
-                        <Link className='mr-6' to={'/blogs'}>Blogs</Link>
+                        <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
+                        {/* <Link className='mr-6' to={'/blogs'}>Blogs</Link> */}
                         <Link className='mr-6' to={'/myPortfolio'}>My Portfolio</Link>
+                        {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
 
                     </nav>
+                    <div >
+                    <input type="checkbox" class="toggle toggle-sm" />
+                    <p>Admin</p>
+                    </div>
+
+                    {!user&&<p className=" bg-base-300 p-3 rounded-md border-2 border-slate-900 fixed right-0 bottom-16 z-40 opacity-60 text-center">You are browsing as guest user <br />Some Option might not work <br />Log in to use full features </p>}
 
 
                     <div className="flex-none">
 
                         {/* <input type="checkbox" className="toggle" /> */}
                         <div className="dropdown dropdown-end">
-                            <label tabIndex="0" className="btn m-1" className="btn btn-ghost btn-circle avatar">
+                            <label tabIndex="0" className="btn btn-ghost btn-circle avatar m-1">
                                 <div className="w-10 h-10 rounded-full bg-slate-400 flex justify-center items-center">
                                     {data?.data.image ? <img src={data?.data.image} alt='user image' /> : <FontAwesomeIcon className='w-5 h-5 p-2' icon={faUser}></FontAwesomeIcon>}
                                 </div>
@@ -123,9 +129,9 @@ const Header = ({ setIsDark, isDark }) => {
                     </RequireAuth>
                 }>  </Route>
                 <Route path='/dashboard' element={
-                    <RequireAuth>
+              
                         <Dashboard></Dashboard>
-                    </RequireAuth>
+               
 
                 }>
                     <Route path='add-review' element={<AddReview></AddReview>}></Route>
