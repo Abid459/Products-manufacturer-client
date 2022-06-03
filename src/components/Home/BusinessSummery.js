@@ -3,9 +3,9 @@ import React from 'react';
 const BusinessSummery = () => {
     return (
         <div className='w-full '>
-            <div className='flex justify-center flex-col text-center'>
+            <div className='flex justify-center flex-col text-center mt-10'>
                 <div className='flex justify-center conte'>
-                    <h3 className='text-center font-bold text-xl'>Our Business Summery</h3>
+                    <h3 className='text-center font-bold text-xl'>Our journry at a glance</h3>
                 </div>
                 <div className="lg:stats shadow mx-auto my-10">
 

@@ -47,7 +47,7 @@ const Dashboard = () => {
                         
 
 
-                        {!user && <p className=" bg-base-300 border absolute bottom-36 p-3 rounded-md border-slate-900 mt-10 text-center">You are browsing as guest user <br />Some Option might not work <br />Log in to use full features </p>}
+                        {!user && <p className=" bg-base-300 border absolute bottom-36 p-3 rounded-md border-slate-900 mt-10 text-center">You are browsing as guest user <br />Some Options might not work <br />Log in to use full features </p>}
                     </ul>
 
                 </div>

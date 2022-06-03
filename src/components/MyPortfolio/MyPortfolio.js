@@ -68,8 +68,6 @@ const MyPortfolio = () => {
 
                     <p>Website 1: <a href="https://warehouse-5d158.web.app/" target='_blank' className='underline'>Click here</a> </p>
                     <p>Website 2: <a href="https://tiny-semifreddo-64a3a8.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
-                    <p>Website 3: <a href="https://silly-kataifi-aad752.netlify.app/" target='_blank' className='underline'>Click here</a> </p>
-
                     </div>
                 </div>
 
