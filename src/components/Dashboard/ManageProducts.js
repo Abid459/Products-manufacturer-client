@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
+import useIsAdmin from '../../hooks/useIsAdmin';
 import ConfirmModal from '../../shared components/ConfirmModal';
 import Loading from '../Loading/Loading';
 
 const ManageProducts = () => {
     const [isConfirmDelete, setIsConfirmDelete] = useState(false)
     const [ProductId,setProductId] = useState('')
+    const isAdmin = useIsAdmin();
     const { isLoading, error, data, refetch } = useQuery('products', () => axios('https://limitless-earth-93689.herokuapp.com/products'))
     const products = data?.data;
     if (error) {
@@ -49,7 +51,7 @@ const ManageProducts = () => {
                                 <p>{product.price}</p>
                             </div> */}
                             <div className="">
-                                <label onClick={()=>setProductId(product._id)} for="confirm-modal" className="btn btn-sm modal-button">DELETE</label>
+                                <label onClick={()=>setProductId(product._id)} for="confirm-modal" className="btn btn-sm modal-button" disabled={!isAdmin} >DELETE</label>
 
                             </div>
                         </div>

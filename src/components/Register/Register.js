@@ -4,6 +4,7 @@ import auth from '../firebase.init';
 import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 import saveUser from "../../utilities/saveUser";
+import generateToken from "../../utilities/generateToken";
 
 const Register = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -20,7 +21,6 @@ const Register = () => {
     const [updateProfile, updating, errorUpdate] = useUpdateProfile(auth);
 
     const handleGoogleSignin = () => {
-        console.log('login in is clicked')
         signInWithGoogle();
 
     }
@@ -33,8 +33,14 @@ const Register = () => {
     }
 
     //saving user into database
-    user && saveUser(user.user.displayName,user.user.email)
-    gUser && saveUser(gUser.user.displayName,gUser.user.email);
+    if(user){
+        saveUser(user.user.displayName,user.user.email)
+    }
+    if(gUser){
+        
+        saveUser(gUser.user.displayName,gUser.user.email);
+        generateToken(gUser.user.email);
+    }
     
     return (
         <div className='min-h-screen flex justify-center items-center'>

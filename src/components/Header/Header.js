@@ -26,8 +26,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import AllProducts from '../AllProducts/AllProducts';
 import Payment from '../Dashboard/Payment';
+import useIsAdmin from '../../hooks/useIsAdmin';
 
 const Header = ({ setIsDark, isDark }) => {
+    const isAdmin = useIsAdmin();
     const navigate = useNavigate();
     const [user, loading, aError] = useAuthState(auth);
     const email = user?.email;
@@ -37,10 +39,6 @@ const Header = ({ setIsDark, isDark }) => {
     // console.log(data?.data.image);
 
 
-    const handleNav = (e) => {
-        console.log(e.target.checked)
-
-    }
     return (
         <div>
             <>
@@ -58,12 +56,9 @@ const Header = ({ setIsDark, isDark }) => {
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
 
                     </nav>
-                    <div >
-                    <input type="checkbox" class="toggle toggle-sm" />
-                    <p>Admin</p>
-                    </div>
 
-                    {!user&&<p className=" bg-base-300 p-3 rounded-md border-2 border-slate-900 fixed right-0 bottom-16 z-40 opacity-60 text-center">You are browsing as guest user <br />Some Option might not work <br />Log in to use full features </p>}
+
+                    
 
 
                     <div className="flex-none">
@@ -72,9 +67,11 @@ const Header = ({ setIsDark, isDark }) => {
                         <div className="dropdown dropdown-end">
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar m-1">
                                 <div className="w-10 h-10 rounded-full bg-slate-400 flex justify-center items-center">
-                                    {data?.data.image ? <img src={data?.data.image} alt='user image' /> : <FontAwesomeIcon className='w-5 h-5 p-2' icon={faUser}></FontAwesomeIcon>}
+                                    {data?.data.image ? <img src={data?.data.image} alt='user' /> : <FontAwesomeIcon className='w-5 h-5 p-2' icon={faUser}></FontAwesomeIcon>}
                                 </div>
                             </label>
+
+
 
                             <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <li onClick={() => navigate('/Dashboard')}>
@@ -88,6 +85,8 @@ const Header = ({ setIsDark, isDark }) => {
 
                             </ul>
                         </div>
+                        
+
 
 
 
@@ -129,9 +128,9 @@ const Header = ({ setIsDark, isDark }) => {
                     </RequireAuth>
                 }>  </Route>
                 <Route path='/dashboard' element={
-              
-                        <Dashboard></Dashboard>
-               
+
+                    <Dashboard></Dashboard>
+
 
                 }>
                     <Route path='add-review' element={<AddReview></AddReview>}></Route>

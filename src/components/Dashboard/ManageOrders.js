@@ -20,6 +20,9 @@ const ManageOrders = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    if(error){
+        toast.error(error.message)
+    }
     const handleDelete = async (id) => {
 
         const response = axios.delete(`https://limitless-earth-93689.herokuapp.com/order/${id}`)
