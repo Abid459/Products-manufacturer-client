@@ -46,6 +46,7 @@ const LogIn = () => {
         const data = generateToken(gUser?.user?.email);
     }
     if(user|| gUser){
+        user && generateToken(user?.user?.email);
         navigate(from, { replace: true });
     }
     return (

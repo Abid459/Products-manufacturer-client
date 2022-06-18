@@ -74,11 +74,11 @@ const Header = ({ setIsDark, isDark }) => {
 
 
                             <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li onClick={() => navigate('/Dashboard')}>
-                                    <a className="justify-between">
+                                <li >
+                                    <Link to='/Dashboard' className="justify-between">
                                         Profile
                                         <span className="badge">New</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className='justify-between flex-row' onClick={() => setIsDark(!isDark)}><p>Dark mood</p> <input type="checkbox" className="toggle" checked={isDark} /></li>
                                 {user && <li><a onClick={() => signOut(auth)}>Logout</a></li>}
@@ -128,8 +128,9 @@ const Header = ({ setIsDark, isDark }) => {
                     </RequireAuth>
                 }>  </Route>
                 <Route path='/dashboard' element={
-
+                    <RequireAuth>
                     <Dashboard></Dashboard>
+                    </RequireAuth>
 
 
                 }>
