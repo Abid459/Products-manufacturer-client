@@ -8,11 +8,15 @@ Live website: [Click Here](https://tool-manufacturer.web.app/).
 
 ## Features:
 * This website has dark mood 
-* There is a dashboard where you can find your Profile,your oreder,Add review pagw
+* There is a dashboard where you can find your Profile,your oreder,Add review page
 * As a admin you will see different route
 * You can sign in with email and google.
-* Without signing in you can not see the dashboard route
+* Dashboard is a private route. You need to login in order to access it
 * JWT is used to make secure the api.
+
+# Admin credential:
+email: moon@light.com
+Password: 123456
 
 
 
