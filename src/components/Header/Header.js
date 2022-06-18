@@ -21,12 +21,13 @@ import axios from 'axios';
 import NotFound from '../NotFound/NotFound';
 import RequireAuth from '../RequireAuth/RequireAuth';
 import Blogs from '../Blogs/Blogs';
-import MyPortfolio from '../MyPortfolio/MyPortfolio';
+import aboutMe from '../AboutMe/AboutMe';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import AllProducts from '../AllProducts/AllProducts';
 import Payment from '../Dashboard/Payment';
 import useIsAdmin from '../../hooks/useIsAdmin';
+import AboutMe from '../AboutMe/AboutMe';
 
 const Header = ({ setIsDark, isDark }) => {
     const isAdmin = useIsAdmin();
@@ -52,7 +53,7 @@ const Header = ({ setIsDark, isDark }) => {
                         {/* <Link className='mr-6' to={'/purchase'}>Purches</Link> */}
                         <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
                         {/* <Link className='mr-6' to={'/blogs'}>Blogs</Link> */}
-                        <Link className='mr-6' to={'/myPortfolio'}>My Portfolio</Link>
+                        <Link className='mr-6' to={'/aboutMe'}>About Me</Link>
                         {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
 
                     </nav>
@@ -105,7 +106,7 @@ const Header = ({ setIsDark, isDark }) => {
                                 {/* <Link className='mr-6' to={'/purchase'}>Purches</Link> */}
                                 <li>{user && <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>}</li>
                                 <li> <Link className='mr-6' to={'/blogs'}>Blogs</Link></li>
-                                <li><Link className='mr-6' to={'/myPortfolio'}>My Portfolio</Link></li>
+                                <li><Link className='mr-6' to={'/aboutMe'}>About me</Link></li>
                                 {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
 
                             </ul>
@@ -147,7 +148,7 @@ const Header = ({ setIsDark, isDark }) => {
                 <Route path='/register' element={<Register></Register>}></Route>
                 <Route path='/login' element={<LogIn></LogIn>}>  </Route>
                 <Route path='blogs' element={<Blogs></Blogs>}></Route>
-                <Route path='myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+                <Route path='aboutMe' element={<AboutMe></AboutMe>}></Route>
                 <Route path='allProducts' element={<AllProducts></AllProducts>}></Route>
                 <Route path='*' element={<NotFound></NotFound>}>  </Route>
             </Routes>

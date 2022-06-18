@@ -5,7 +5,11 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 
 const Users = () => {
-    const { isLoading, error, data, refetch } = useQuery('products', () => axios('https://limitless-earth-93689.herokuapp.com/users'))
+    const { isLoading, error, data, refetch } = useQuery('products', () => axios('https://limitless-earth-93689.herokuapp.com/users',{
+        headers:{
+            authorization :`Bearer ${localStorage.getItem('accessToken')}`
+    }
+    }))
     const users = data?.data;
 
     if (error) {
