@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { NavLink,Link, Route, Routes, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase.init';
@@ -45,16 +45,16 @@ const Header = ({ setIsDark, isDark }) => {
             <>
                 <div className="navbar bg-base-100">
                     <div className="flex-1">
-                        <Link to={'/'} className="normal-case font-bold text-xl">CRAFTSMAN</Link>
+                        <NavLink to={'/'} className="normal-case font-bold text-xl">CRAFTSMAN</NavLink>
                     </div>
 
                     <nav className='mx-10 hidden lg:block'>
-                        <Link className='mr-6' to={'/'}>Home</Link>
+                        <NavLink className={({isActive})=>isActive?'mr-6 text-amber-500 font-semibold':'mr-6'} to={'/'}>Home</NavLink>
                         {/* <Link className='mr-6' to={'/purchase'}>Purches</Link> */}
-                        <Link className='mr-6' to={'/Dashboard'}>Dashboard</Link>
+                        <NavLink className={({isActive})=>isActive?'mr-6 text-amber-500 font-semibold':'mr-6'}  to={'/Dashboard'}>Dashboard</NavLink>
                         {/* <Link className='mr-6' to={'/blogs'}>Blogs</Link> */}
-                        <Link className='mr-6' to={'/aboutMe'}>About Me</Link>
-                        {!user && <Link className='mr-6' to={'/Login'}>Log in</Link>}
+                        <NavLink className={({isActive})=>isActive?'mr-6 text-amber-500 font-semibold':'mr-6'}  to={'/aboutMe'}>About Me</NavLink>
+                        {!user && <NavLink className={({isActive})=>isActive?'mr-6 text-amber-500 font-semibold':'mr-6'}  to={'/Login'}>Log in</NavLink>}
 
                     </nav>
 

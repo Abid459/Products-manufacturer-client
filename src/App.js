@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
+import React from 'react';
 
 function App() {
   const [isDark,setIsDark] = useState(false)
@@ -11,7 +12,6 @@ function App() {
     <div className="App" data-theme={isDark? "dark":"light"}>
       <Header setIsDark={setIsDark} isDark ={isDark}></Header>
       <div><Toaster/></div>
-
     </div>
   );
 }

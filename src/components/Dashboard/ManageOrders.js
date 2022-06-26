@@ -70,7 +70,7 @@ const ManageOrders = () => {
                                 <p>{order.totalPrice}</p>
                             </div>
                             <div className="">
-                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" className="btn btn-sm modal-button">DELETE</label>
+                                <label onClick={()=>setOrderId(order._id)} for="confirm-modal" className="btn btn-sm modal-button bg-sky-700">DELETE</label>
 
                             </div>
                         </div>

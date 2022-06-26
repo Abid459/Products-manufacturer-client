@@ -15,7 +15,7 @@ const Tools = () => {
     return (
         <section className='p-16'>
             {isLoading && <Loading></Loading>}
-            <h3 className='text-center text-xl font-bold mb-10'>Currently We are manufacturing</h3>
+            <h3 className='text-center text-3xl font-bold mb-10'>Our <span className='text-amber-500'>Products</span></h3>
             <Products products={products}></Products>
             <p onClick={()=>navigate('/allProducts')} className='cursor-pointer text-right mt-2'>All Products  <FontAwesomeIcon icon={faCircleRight}></FontAwesomeIcon> </p>
         </section>

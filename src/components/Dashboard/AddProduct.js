@@ -89,7 +89,7 @@ const AddProduct = () => {
                                 <textarea className="textarea textarea-bordered" placeholder="description" {...register("description")}></textarea>
 
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">ADD</button>
+                                    <button className="btn bg-sky-700">ADD</button>
                                 </div>
                             </div>
                         </div>

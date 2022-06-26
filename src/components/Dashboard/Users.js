@@ -70,7 +70,7 @@ const Users = () => {
                             <p>{user.price}</p>
                         </div> */}
                         <div className="">
-                        {user?.role ? <button className="btn btn-outline " onClick={() => handleremoveAdmin(user.email)}>Remove Admin</button>:<button className="btn " onClick={() => handleaddAdmin(user.email)}>Make Admin</button>}
+                        {user?.role ? <button className="btn btn-outline border-sky-700" onClick={() => handleremoveAdmin(user.email)}>Remove Admin</button>:<button className="btn bg-sky-700 border-0 " onClick={() => handleaddAdmin(user.email)}>Make Admin</button>}
 
                         </div>
                     </div>

@@ -9,21 +9,13 @@ import auth from '../firebase.init';
 import Loading from '../Loading/Loading';
 import { useForm } from "react-hook-form";
 import './myProfile.css'
+import useUserData from '../../hooks/useUserData';
 
 const MyProfile = () => {
     const [isEdit, setIsEdit] = useState(false);
-    const [userData, setUserData] = useState({})
     const [user, loading, aError] = useAuthState(auth);
-    // const [uploadedImage, setUploadedImage] = useState()
     const email = user?.email;
-    // const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
-    //fetch user data
-    const { isLoading, error, data, refetch } = useQuery(['user', email], () => axios.get(`https://limitless-earth-93689.herokuapp.com/user/${email}`))
-    // console.log(data)
-    useEffect(() => {
-        setUserData(data?.data)
-    }, [data])
+    const {userData,refetch} = useUserData(email);
 
     const imgStorageKey = '24753a95c31c04df900da1afeeb85b15';
     //update user data
@@ -82,13 +74,10 @@ const MyProfile = () => {
 
 
     };
-
-    if (isLoading || loading) {
-        return <Loading></Loading>
-    }
-
-    error && toast.error(error.message)
+    loading && <Loading></Loading>
+    
     aError && toast.error(aError.message)
+    
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -115,7 +104,7 @@ const MyProfile = () => {
                         </div>
                         <div className="divider"></div>
 
-                        <h4 className='text-xl font-semibold text-secondary mb-5'>Conact</h4>
+                        <h4 className='text-xl font-semibold text-sky-500 mb-5'>Conact</h4>
                         <h4 className='font-semibold'>Your Email address:</h4>
                         <input type="text" name='email' placeholder="Add your Email" className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.email} />
 
@@ -123,7 +112,7 @@ const MyProfile = () => {
                         <input type="text" name='phoneNo' placeholder='Add your Phone No' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.phoneNo} />
 
 
-                        <h4 className='text-xl font-semibold text-secondary mb-5'>Address</h4>
+                        <h4 className='text-xl font-semibold text-sky-500  mb-5'>Address</h4>
                         <h4 className='font-semibold'>Country:</h4>
                         <input type="text" name='country' placeholder='Add your country' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.country} />
                         <h4 className='font-semibold'>District/State:</h4>
@@ -132,7 +121,7 @@ const MyProfile = () => {
                         <input type="text" placeholder='Details about you address' name='streetAddress' className="input input-bordered input-sm w-full max-w-xs bg-transparent mb-5" disabled={!isEdit} defaultValue={userData?.address?.streetAddress} />
 
 
-                        <h4 className='text-xl font-semibold text-secondary mb-5'>Social</h4>
+                        <h4 className='text-xl font-semibold text-sky-500  mb-5'>Social</h4>
                         <div className="form-control">
                             <label className="input-group mb-5">
                                 <span className='rounded-full'><FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon></span>

@@ -51,7 +51,7 @@ const ManageProducts = () => {
                                 <p>{product.price}</p>
                             </div> */}
                             <div className="">
-                                <label onClick={()=>setProductId(product._id)} for="confirm-modal" className="btn btn-sm modal-button" disabled={!isAdmin} >DELETE</label>
+                                <label onClick={()=>setProductId(product._id)} for="confirm-modal" className="btn btn-sm bg-sky-700 modal-button" disabled={!isAdmin} >DELETE</label>
 
                             </div>
                         </div>
